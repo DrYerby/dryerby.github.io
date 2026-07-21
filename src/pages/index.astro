@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const title = 'Johnathan Yerby, Ph.D.';
+const description = 'Professional website of Johnathan Yerby, Ph.D., Associate Professor of Computer Science and cybersecurity program director at Mercer University.';
+---
+
+<BaseLayout title={title} description={description} currentPath="/">
+  <div class="homepage-shell">
+    <Hero
+      title="Johnathan Yerby, Ph.D."
+      eyebrow="Cybersecurity Education • Research • Leadership"
+      roles={[
+        'Associate Professor of Computer Science',
+        'Director, Cybersecurity Program',
+        'Director, Center for Cyber Outreach, Research, and Education',
+        'Mercer University',
+      ]}
+      intro="Johnathan Yerby, Ph.D., is an Associate Professor of Computer Science at Mercer University, where he directs the Cybersecurity Program and the Center for Cyber Outreach, Research, and Education. His work spans cybersecurity education, digital privacy and surveillance, cyber risk and governance, digital forensics, and the preparation of students for professional practice."
+      actions={[
+        { href: '/cv/', label: 'View CV' },
+        { href: '/research/', label: 'Research & Scholarship', secondary: true },
+        { href: '/media/', label: 'Media & Press', secondary: true },
+      ]}
+    />
+    <section class="homepage-section">
+      <SectionHeading title="Areas of Focus" subtitle="A concise overview of current academic and professional priorities." />
+      <ul class="focus-list">
+        <li>Cybersecurity education and workforce development</li>
+        <li>Digital privacy, surveillance, and public-facing cyber risk</li>
+        <li>Cybersecurity governance, risk, law, ethics, and compliance</li>
+        <li>Digital forensics and applied cybersecurity</li>
+        <li>Academic program and curriculum leadership</li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

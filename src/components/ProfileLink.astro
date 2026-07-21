@@ -1,0 +1,5 @@
+---
+const { href, label, secondary = false } = Astro.props;
+---
+
+<a class:list={['profile-link', secondary && 'profile-link--secondary']} href={href}>{label}</a>

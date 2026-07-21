@@ -1,0 +1,40 @@
+---
+const { title, subtitle, intro, actions = [], eyebrow = 'Professional profile', roles = [] } = Astro.props;
+
+interface ActionItem {
+  href: string;
+  label: string;
+  secondary?: boolean;
+}
+
+const actionItems = (actions as ActionItem[]) ?? [];
+const roleItems = Array.isArray(roles) ? roles : [];
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div>
+    <p class="eyebrow">{eyebrow}</p>
+    <h1 id="hero-title">{title}</h1>
+    {roleItems.length > 0 && (
+      <div class="hero__roles" aria-label="Current roles">
+        {roleItems.map((role, index) => (
+          <p class:list={['hero__role', index === 0 && 'hero__role--primary']}>{role}</p>
+        ))}
+      </div>
+    )}
+    {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+    <p class="hero__intro">{intro}</p>
+    {actionItems.length > 0 && (
+      <div class="hero__actions">
+        {actionItems.map((action) => (
+          <a class:list={['button-link', action.secondary && 'button-link--secondary']} href={action.href}>
+            {action.label}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+  <div class="portrait-placeholder" aria-label="Reserved area for a future professional photograph">
+    Reserved for a future professional photograph.
+  </div>
+</section>

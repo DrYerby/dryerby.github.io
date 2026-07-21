@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const {
+  title,
+  description,
+  currentPath = '/',
+  image,
+} = Astro.props;
+
+const siteTitle = 'Johnathan Yerby, Ph.D. | Cybersecurity Professor and Researcher';
+const pageTitle = title ? `${title} | Johnathan Yerby` : siteTitle;
+const canonicalPath = currentPath === '/' ? '/' : `${currentPath.replace(/\/$/, '')}/`;
+const canonicalURL = new URL(canonicalPath, Astro.site ?? 'https://dryerby.github.io');
+const socialImage = image ?? '/social-card.png';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Johnathan Yerby',
+  jobTitle: 'Associate Professor of Computer Science',
+  description,
+  url: canonicalURL.toString(),
+  alumniOf: 'Mercer University',
+};
+const profilePage = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@id': canonicalURL.toString(),
+    '@type': 'Person',
+    name: 'Johnathan Yerby',
+    jobTitle: 'Associate Professor of Computer Science',
+    description,
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.toString()} />
+    <meta property="og:site_name" content="Johnathan Yerby" />
+    <meta property="og:image" content={new URL(socialImage, Astro.site ?? 'https://dryerby.github.io').toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <link rel="canonical" href={canonicalURL.toString()} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(profilePage)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="site-shell">
+      <Header currentPath={currentPath} />
+      <main id="main-content" class="site-main">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

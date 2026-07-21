@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dryerby.github.io/sitemap-index.xml

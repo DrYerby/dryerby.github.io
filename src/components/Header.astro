@@ -1,0 +1,11 @@
+---
+import Navigation from './Navigation.astro';
+const { currentPath = '/' } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href="/">Johnathan Yerby, Ph.D.</a>
+    <Navigation currentPath={currentPath} />
+  </div>
+</header>
