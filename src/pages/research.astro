@@ -1,18 +1,136 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = 'Research';
-const description = 'Research interests and scholarship profile for Johnathan Yerby.';
+import PublicationList from '../components/PublicationList.astro';
+
+const title = 'Research & Scholarship';
+const description = 'Research interests, selected publications, student-inclusive scholarship, and sponsored activity of Johnathan Yerby, Ph.D., a cybersecurity professor and researcher at Mercer University.';
 ---
 
 <BaseLayout title={title} description={description} currentPath="/research/">
   <section class="page-shell">
     <header class="page-shell__header">
-      <p class="eyebrow">Research</p>
-      <h1>Research</h1>
-      <p class="page-intro">This page will be updated with current research and scholarship information.</p>
+      <p class="eyebrow">Research &amp; Scholarship</p>
+      <h1>Research &amp; Scholarship</h1>
+      <p class="page-shell__intro readable-prose">Dr. Yerby’s research examines cybersecurity as an educational, technical, organizational, and public problem. His work is organized around three connected areas: cybersecurity education and workforce development; privacy, surveillance, governance, and public-facing cyber risk; and digital forensics and cyber experimentation. Student collaboration is a recurring part of this work.</p>
     </header>
     <div class="page-shell__content">
-      <p>This page will be updated with current research and scholarship information.</p>
+      <section class="page-shell__section" aria-labelledby="research-areas">
+        <h2 id="research-areas">Research Areas</h2>
+        <div class="research-grid">
+          <article>
+            <h3>Cybersecurity Education and Workforce Development</h3>
+            <p>Examines how students learn cybersecurity and how academic programs connect classroom learning to professional practice. Topics include applied learning, cybersecurity competition teams, immersive computing camps, workforce preparation, and curriculum development.</p>
+          </article>
+          <article>
+            <h3>Privacy, Surveillance, and Technology Governance</h3>
+            <p>Examines how digital technologies affect privacy, accountability, institutions, and public trust. Recent topics include automated license plate readers, age verification, social media privacy, identity assurance, and accountability for increasingly autonomous artificial intelligence systems.</p>
+          </article>
+          <article>
+            <h3>Digital Forensics and Cyber Experimentation</h3>
+            <p>Focuses on authentic investigation and controlled experimentation, including virtualized honeypots, malware analysis, steganography, and learning activities that connect technical evidence with professional judgment.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="student-inclusive-scholarship">
+        <h2 id="student-inclusive-scholarship">Student-Inclusive Scholarship</h2>
+        <p class="readable-prose">Undergraduate and graduate students frequently participate in Dr. Yerby’s research through literature review, data analysis, scholarly writing, presentation, and peer review. Recent projects have developed into peer-reviewed journal articles, conference proceedings, graduate thesis research, externally reviewed presentations, and nationally selected research opportunities. Student-authored and co-authored work is submitted through normal professional review channels.</p>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="selected-publications">
+        <h2 id="selected-publications">Selected Recent Publications</h2>
+        <PublicationList />
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="research-profile">
+        <h2 id="research-profile">Research Profile</h2>
+        <p class="readable-prose">Google Scholar reported 457 citations, an h-index of 13, and an i10-index of 15 as of July 2026.</p>
+        <p><a class="text-link" href="https://scholar.google.com/citations?user=e6s__p0AAAAJ&hl=en">Google Scholar profile</a></p>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="sponsored-activity">
+        <h2 id="sponsored-activity">Selected Sponsored Activity</h2>
+        <div class="activity-list">
+          <article class="activity-entry">
+            <h3>Georgia Educators Networking to Revolutionize and Transform Education (GENERATE)</h3>
+            <dl class="activity-metadata">
+              <div>
+                <dt>Role</dt>
+                <dd>Co-Principal Investigator</dd>
+              </div>
+              <div>
+                <dt>Sponsor</dt>
+                <dd>U.S. Department of Education</dd>
+              </div>
+              <div>
+                <dt>Amount</dt>
+                <dd>$9,146,065</dd>
+              </div>
+              <div>
+                <dt>Period</dt>
+                <dd>2022 to 2025</dd>
+              </div>
+            </dl>
+            <p class="activity-description readable-prose">Developed and managed statewide computer science and cybersecurity curriculum, professional learning, and credential development for Georgia educators.</p>
+          </article>
+          <article class="activity-entry">
+            <h3>Liberal Education and America’s Promise, Advanced Forensics Project</h3>
+            <dl class="activity-metadata">
+              <div>
+                <dt>Role</dt>
+                <dd>Faculty participant</dd>
+              </div>
+              <div>
+                <dt>Amount</dt>
+                <dd>$5,000</dd>
+              </div>
+              <div>
+                <dt>Period</dt>
+                <dd>2019 and 2020</dd>
+              </div>
+            </dl>
+            <p class="activity-description readable-prose">Supported advanced digital-forensics learning and applied instructional work.</p>
+          </article>
+          <article class="activity-entry">
+            <h3>Erasmus+ International Faculty Mobility</h3>
+            <dl class="activity-metadata">
+              <div>
+                <dt>Role</dt>
+                <dd>Erasmus+ Scholar</dd>
+              </div>
+              <div>
+                <dt>Year</dt>
+                <dd>2018</dd>
+              </div>
+            </dl>
+            <p class="activity-description readable-prose">Supported invited teaching and international academic exchange in privacy, cyber forensics, social media, and information security in Warsaw, Poland.</p>
+          </article>
+          <article class="activity-entry">
+            <h3>Southeastern Advanced Cybersecurity Education Consortium (ACE), National Science Foundation</h3>
+            <dl class="activity-metadata">
+              <div>
+                <dt>Role</dt>
+                <dd>Program Associate, GA State Lead</dd>
+              </div>
+              <div>
+                <dt>Amount</dt>
+                <dd>$1,800,000</dd>
+              </div>
+              <div>
+                <dt>Year</dt>
+                <dd>2013 to 2017</dd>
+              </div>
+            </dl>
+            <p class="activity-description readable-prose">Supported ACE Consortium grant with training, education, curriculum, and cyber forensics workforce pipeline development through Daytona State College as the PI for the grant.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="additional-scholarship-information">
+        <h2 id="additional-scholarship-information">Additional Scholarship Information</h2>
+        <p class="readable-prose">The curriculum vitae provides a more complete record of publications, presentations, sponsored activity, editorial work, and professional review.</p>
+        <p><a class="button-link button-link--secondary" href="/documents/Johnathan-Yerby-CV.pdf">View Full CV</a></p>
+      </section>
     </div>
   </section>
 </BaseLayout>
