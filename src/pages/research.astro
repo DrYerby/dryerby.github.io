@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PublicationList from '../components/PublicationList.astro';
+import SponsoredActivityCard from '../components/SponsoredActivityCard.astro';
+import { sponsoredActivities } from '../data/sponsoredActivity';
 
 const title = 'Research & Scholarship';
 const description = 'Research interests, selected publications, student-inclusive scholarship, and sponsored activity of Johnathan Yerby, Ph.D., a cybersecurity professor and researcher at Mercer University.';
@@ -51,85 +53,14 @@ const description = 'Research interests, selected publications, student-inclusiv
       <section class="page-shell__section" aria-labelledby="sponsored-activity">
         <h2 id="sponsored-activity">Selected Sponsored Activity</h2>
         <div class="activity-list">
-          <article class="activity-entry">
-            <h3>Georgia Educators Networking to Revolutionize and Transform Education (GENERATE)</h3>
-            <dl class="activity-metadata">
-              <div>
-                <dt>Role</dt>
-                <dd>Co-Principal Investigator</dd>
-              </div>
-              <div>
-                <dt>Sponsor</dt>
-                <dd>U.S. Department of Education</dd>
-              </div>
-              <div>
-                <dt>Amount</dt>
-                <dd>$9,146,065</dd>
-              </div>
-              <div>
-                <dt>Period</dt>
-                <dd>2022 to 2025</dd>
-              </div>
-            </dl>
-            <p class="activity-description readable-prose">Developed and managed statewide computer science and cybersecurity curriculum, professional learning, and credential development for Georgia educators.</p>
-          </article>
-          <article class="activity-entry">
-            <h3>Liberal Education and America’s Promise, Advanced Forensics Project</h3>
-            <dl class="activity-metadata">
-              <div>
-                <dt>Role</dt>
-                <dd>Faculty participant</dd>
-              </div>
-              <div>
-                <dt>Amount</dt>
-                <dd>$5,000</dd>
-              </div>
-              <div>
-                <dt>Period</dt>
-                <dd>2019 and 2020</dd>
-              </div>
-            </dl>
-            <p class="activity-description readable-prose">Supported advanced digital-forensics learning and applied instructional work.</p>
-          </article>
-          <article class="activity-entry">
-            <h3>Erasmus+ International Faculty Mobility</h3>
-            <dl class="activity-metadata">
-              <div>
-                <dt>Role</dt>
-                <dd>Erasmus+ Scholar</dd>
-              </div>
-              <div>
-                <dt>Year</dt>
-                <dd>2018</dd>
-              </div>
-            </dl>
-            <p class="activity-description readable-prose">Supported invited teaching and international academic exchange in privacy, cyber forensics, social media, and information security in Warsaw, Poland.</p>
-          </article>
-          <article class="activity-entry">
-            <h3>Southeastern Advanced Cybersecurity Education Consortium (ACE), National Science Foundation</h3>
-            <dl class="activity-metadata">
-              <div>
-                <dt>Role</dt>
-                <dd>Program Associate, GA State Lead</dd>
-              </div>
-              <div>
-                <dt>Amount</dt>
-                <dd>$1,800,000</dd>
-              </div>
-              <div>
-                <dt>Year</dt>
-                <dd>2013 to 2017</dd>
-              </div>
-            </dl>
-            <p class="activity-description readable-prose">Supported ACE Consortium grant with training, education, curriculum, and cyber forensics workforce pipeline development through Daytona State College as the PI for the grant.</p>
-          </article>
+          {sponsoredActivities.map((record) => <SponsoredActivityCard record={record} />)}
         </div>
       </section>
 
       <section class="page-shell__section" aria-labelledby="additional-scholarship-information">
         <h2 id="additional-scholarship-information">Additional Scholarship Information</h2>
         <p class="readable-prose">The curriculum vitae provides a more complete record of publications, presentations, sponsored activity, editorial work, and professional review.</p>
-        <p><a class="button-link button-link--secondary" href="/documents/Johnathan-Yerby-CV.pdf">View Full CV</a></p>
+        <p><a class="button-link button-link--secondary" href="/documents/Johnathan_Yerby-CV.pdf">View Full CV</a></p>
       </section>
     </div>
   </section>

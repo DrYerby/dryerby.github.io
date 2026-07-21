@@ -1,5 +1,19 @@
+---
+const profileLinks = [
+  { href: 'mailto:yerby_jm@mercer.edu', label: 'Mercer Email' },
+  { href: 'https://www.linkedin.com/in/yerby/', label: 'LinkedIn' },
+  { href: 'https://scholar.google.com/citations?user=e6s__p0AAAAJ&hl=en', label: 'Google Scholar' },
+  { href: 'https://orcid.org/0000-0001-8945-855X', label: 'ORCID' },
+];
+---
+
 <footer class="site-footer">
   <div class="site-footer__inner">
+    <nav class="site-footer__links" aria-label="Professional profiles">
+      {profileLinks.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </nav>
     <p>© 2026 Johnathan Yerby. This site is maintained for professional and academic information.</p>
   </div>
 </footer>

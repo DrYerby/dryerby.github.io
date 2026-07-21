@@ -11,10 +11,15 @@ const {
 } = Astro.props;
 
 const siteTitle = 'Johnathan Yerby, Ph.D. | Cybersecurity Professor and Researcher';
-const pageTitle = title ? `${title} | Johnathan Yerby` : siteTitle;
+const pageTitle = title ?? siteTitle;
 const canonicalPath = currentPath === '/' ? '/' : `${currentPath.replace(/\/$/, '')}/`;
 const canonicalURL = new URL(canonicalPath, Astro.site ?? 'https://dryerby.github.io');
 const socialImage = image ?? '/social-card.png';
+const sameAs = [
+  'https://www.linkedin.com/in/yerby/',
+  'https://scholar.google.com/citations?user=e6s__p0AAAAJ&hl=en',
+  'https://orcid.org/0000-0001-8945-855X',
+];
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -23,6 +28,7 @@ const jsonLd = {
   description,
   url: canonicalURL.toString(),
   alumniOf: 'Mercer University',
+  sameAs,
 };
 const profilePage = {
   '@context': 'https://schema.org',
@@ -33,6 +39,7 @@ const profilePage = {
     name: 'Johnathan Yerby',
     jobTitle: 'Associate Professor of Computer Science',
     description,
+    sameAs,
   },
 };
 ---
