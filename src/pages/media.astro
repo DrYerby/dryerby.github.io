@@ -1,18 +1,75 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = 'Media & Press';
-const description = 'Media and press information for Johnathan Yerby.';
+import MediaEntry from '../components/MediaEntry.astro';
+import { mediaRecords } from '../data/media';
+import type { MediaRecord } from '../data/media';
+
+const title = 'Media & Press | Johnathan Yerby, Ph.D.';
+const description = 'Media interviews, expert commentary, research coverage, institutional news, and professional press involving cybersecurity educator Johnathan Yerby, Ph.D.';
+
+const sortByDateDescending = (left: MediaRecord, right: MediaRecord) => new Date(right.sortDate).getTime() - new Date(left.sortDate).getTime();
+const featuredRecords = mediaRecords.filter((record) => record.featured).sort(sortByDateDescending).slice(0, 5);
+const visibleRecords = new Set(featuredRecords.map((record) => record.title));
+
+const recentRecords = mediaRecords
+  .filter((record) => record.year >= 2021 && !visibleRecords.has(record.title))
+  .sort(sortByDateDescending);
+
+const earlierRecords = mediaRecords
+  .filter((record) => record.year >= 2013 && record.year <= 2020 && !visibleRecords.has(record.title))
+  .sort(sortByDateDescending);
+
+const earlierByYear = new Map<number, MediaRecord[]>();
+for (const record of earlierRecords) {
+  const existing = earlierByYear.get(record.year) ?? [];
+  existing.push(record);
+  earlierByYear.set(record.year, existing);
+}
+
+const earlierYears = [...earlierByYear.keys()].sort((left, right) => right - left);
 ---
 
 <BaseLayout title={title} description={description} currentPath="/media/">
   <section class="page-shell">
     <header class="page-shell__header">
-      <p class="eyebrow">Media & Press</p>
+      <p class="eyebrow">Media, Public Commentary, and Professional Coverage</p>
       <h1>Media & Press</h1>
-      <p class="page-intro">This page will be updated with media and press references.</p>
+      <p class="page-shell__intro readable-prose">This archive brings together selected interviews, expert commentary, research coverage, institutional news, program announcements, and earlier professional coverage involving Dr. Yerby’s work in cybersecurity, privacy, education, digital forensics, student development, and public engagement.</p>
     </header>
     <div class="page-shell__content">
-      <p>This page will be updated with media and press references.</p>
+      <section class="page-shell__section" aria-labelledby="featured-media">
+        <h2 id="featured-media">Featured Media</h2>
+        <div class="featured-media-grid">
+          {featuredRecords.map((record) => <MediaEntry record={record} featured />)}
+        </div>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="recent-coverage">
+        <h2 id="recent-coverage">Recent Coverage, 2021 to Present</h2>
+        <div class="media-list media-list--compact">
+          {recentRecords.map((record) => <MediaEntry record={record} compact />)}
+        </div>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="earlier-media-archive">
+        <h2 id="earlier-media-archive">Earlier Media Archive, 2013 to 2020</h2>
+        <details class="archive-details" open>
+          <summary>View Earlier Coverage, 2013 to 2020</summary>
+          <div class="archive-year-groups">
+            {earlierYears.map((year) => {
+              const records = earlierByYear.get(year) ?? [];
+              return (
+                <section class="archive-year-group" aria-labelledby={`archive-year-${year}`}>
+                  <h3 id={`archive-year-${year}`}>{year}</h3>
+                  <div class="media-list media-list--compact media-list--archive">
+                    {records.map((record) => <MediaEntry record={record} compact />)}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </details>
+      </section>
     </div>
   </section>
 </BaseLayout>

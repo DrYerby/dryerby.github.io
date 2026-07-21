@@ -1,18 +1,67 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = 'Leadership & Service';
-const description = 'Leadership and service information for Johnathan Yerby.';
+const title = 'Leadership & Service | Johnathan Yerby, Ph.D.';
+const description = 'Cybersecurity program leadership, CAE-CD responsibilities, professional service, consulting, and expert analysis by Johnathan Yerby, Ph.D.';
 ---
 
 <BaseLayout title={title} description={description} currentPath="/leadership/">
   <section class="page-shell">
     <header class="page-shell__header">
-      <p class="eyebrow">Leadership & Service</p>
+      <p class="eyebrow">Academic Leadership and Professional Service</p>
       <h1>Leadership & Service</h1>
-      <p class="page-intro">This page will be updated with leadership and service information.</p>
+      <p class="page-shell__intro readable-prose">Dr. Yerby’s leadership work centers on cybersecurity curriculum, program development, national designation and compliance, student opportunity, faculty coordination, outreach, and relationships with educational, government, industry, and community partners.</p>
     </header>
     <div class="page-shell__content">
-      <p>This page will be updated with leadership and service information.</p>
+      <div class="leadership-major-grid">
+        <section class="page-shell__section page-shell__section--card leadership-major" aria-labelledby="cybersecurity-program-leadership">
+          <h2 id="cybersecurity-program-leadership">Cybersecurity Program Leadership</h2>
+          <p>As Director of Mercer University’s Cybersecurity Program, Dr. Yerby supports the undergraduate cybersecurity pathways through curriculum planning, course scheduling, assessment, advising, faculty coordination, recruitment, student development, program documentation, and external engagement. His work is focused on maintaining a coherent academic pathway from foundational study through applied experience, research, professional preparation, and graduation.</p>
+        </section>
+
+        <section class="page-shell__section page-shell__section--card leadership-major" aria-labelledby="nsa-cae-cd">
+          <h2 id="nsa-cae-cd">NSA Center of Academic Excellence in Cyber Defense</h2>
+          <p>Dr. Yerby led the substantive application and curriculum-validation work that resulted in Mercer’s designation as a National Center of Academic Excellence in Cyber Defense. He now serves as the institutional point of contact and accounts administrator, with responsibilities involving continuing compliance, annual reporting, curriculum alignment, national community participation, institutional account administration, and renewal preparation.</p>
+        </section>
+      </div>
+
+      <section class="page-shell__section" aria-labelledby="supporting-leadership">
+        <h2 id="supporting-leadership">Supporting Leadership Roles</h2>
+        <div class="leadership-support-grid">
+          <article class="supporting-note">
+            <h3>Center for Cyber Outreach, Research, and Education (CORE)</h3>
+            <p>As Director of the Center for Cyber Outreach, Research, and Education, Dr. Yerby helps connect Mercer’s cybersecurity program with research, public education, student opportunities, professional partnerships, grant development, and community-facing activities.</p>
+          </article>
+          <article class="supporting-note">
+            <h3>GENERATE</h3>
+            <p>Dr. Yerby served as a co-principal investigator and director of the Computer Science and Cybersecurity Endorsement within the U.S. Department of Education-funded GENERATE initiative. The work supported statewide curriculum, professional learning, and credential development for Georgia educators.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-shell__section page-shell__section--card" aria-labelledby="prior-academic-leadership">
+        <h2 id="prior-academic-leadership">Prior Academic Leadership</h2>
+        <p class="readable-prose">Before joining Mercer, Dr. Yerby served as Department Chair and tenured Associate Professor of Information Technology at Middle Georgia State University. His broader academic leadership included program and curriculum development, faculty mentoring, assessment, multi-campus administration, applied laboratory development, external partnerships, student professional development, and institutional service. The curriculum vitae provides a fuller record of current and prior leadership appointments.</p>
+      </section>
+
+      <section class="page-shell__section page-shell__section--card" aria-labelledby="professional-and-national-service">
+        <h2 id="professional-and-national-service">Professional and National Service</h2>
+        <p class="readable-prose">Professional service has included editorial and peer-review work for journals, conferences, textbooks, cybersecurity-education communities, and national designation processes. Dr. Yerby has also served on professional and community advisory boards, participated in curriculum and standards initiatives, and contributed to externally reviewed grant and cybersecurity-education activities. The curriculum vitae provides a more complete listing.</p>
+      </section>
+
+      <section class="page-shell__section page-shell__section--card leadership-callout" aria-labelledby="consulting-and-expert-analysis">
+        <h2 id="consulting-and-expert-analysis">Consulting and Expert Analysis</h2>
+        <p>Dr. Yerby provides independent cybersecurity consulting and expert analysis in matters involving software behavior, source code, security controls, digital evidence, electronic records, information systems, and information-security practices. Engagements are considered when they fall within established areas of professional expertise, and conclusions are limited to reviewed evidence and documentation.</p>
+        <p><a class="button-link" href="/consulting/">Consulting &amp; Expert Analysis</a></p>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="professional-inquiries">
+        <h2 id="professional-inquiries">Professional Inquiries</h2>
+        <p class="readable-prose">For academic collaboration, media requests, cybersecurity consulting, or expert-witness inquiries, contact Dr. Yerby through his Mercer University email.</p>
+        <div class="hero__actions">
+          <a class="button-link" href="mailto:yerby_jm@mercer.edu">yerby_jm@mercer.edu</a>
+          <a class="button-link button-link--secondary" href="/documents/Johnathan_Yerby_CV.pdf">View Current CV</a>
+        </div>
+      </section>
     </div>
   </section>
 </BaseLayout>

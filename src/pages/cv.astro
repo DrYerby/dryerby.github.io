@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Curriculum Vitae | Johnathan Yerby, Ph.D.';
-const description = 'Current curriculum vitae of Johnathan Yerby, Ph.D., including academic appointments, teaching, research, publications, grants, leadership, and professional service.';
-const cvUrl = '/documents/Johnathan-Yerby-CV.pdf';
+const description = 'Current curriculum vitae, professional profiles, and contact information for Johnathan Yerby, Ph.D.';
+const cvUrl = '/documents/Johnathan_Yerby_CV.pdf';
 ---
 
 <BaseLayout title={title} description={description} currentPath="/cv/">
@@ -10,12 +10,28 @@ const cvUrl = '/documents/Johnathan-Yerby-CV.pdf';
     <header class="page-shell__header">
       <p class="eyebrow">CV</p>
       <h1>Curriculum Vitae</h1>
-      <p class="page-shell__intro">The current curriculum vitae for Johnathan Yerby, Ph.D., includes academic appointments, teaching, research, publications, grants, professional service, leadership, and related professional activity.</p>
+      <p class="page-shell__intro readable-prose">The current curriculum vitae for Johnathan Yerby, Ph.D., includes academic appointments, teaching, research, publications, grants, professional service, leadership, and related professional activity.</p>
       <p class="page-shell__intro"><strong>Updated July 2026</strong></p>
     </header>
     <div class="page-shell__content">
-      <p><a class="button-link" href={cvUrl}>Download Current CV</a></p>
-      <p><a href={cvUrl}>Open CV in Browser</a></p>
+      <section class="page-shell__section page-shell__section--card" aria-labelledby="cv-downloads">
+        <h2 id="cv-downloads">Current CV</h2>
+        <div class="hero__actions">
+          <a class="button-link" href={cvUrl}>Download Current CV</a>
+          <a class="button-link button-link--secondary" href={cvUrl}>Open CV in Browser</a>
+        </div>
+      </section>
+
+      <section class="page-shell__section page-shell__section--card" aria-labelledby="professional-profiles">
+        <h2 id="professional-profiles">Professional Profiles and Contact</h2>
+        <ul class="profile-list">
+          <li><span>Mercer email:</span> <a class="text-link" href="mailto:yerby_jm@mercer.edu">yerby_jm@mercer.edu</a></li>
+          <li><span>LinkedIn:</span> <a class="text-link" href="https://www.linkedin.com/in/yerby/">https://www.linkedin.com/in/yerby/</a></li>
+          <li><span>Google Scholar:</span> <a class="text-link" href="https://scholar.google.com/citations?user=e6s__p0AAAAJ&hl=en">https://scholar.google.com/citations?user=e6s__p0AAAAJ&hl=en</a></li>
+          <li><span>ORCID:</span> <a class="text-link" href="https://orcid.org/0000-0001-8945-855X">https://orcid.org/0000-0001-8945-855X</a></li>
+        </ul>
+        <p class="readable-prose">Academic collaboration, media, consulting, and expert-witness inquiries may be directed to the Mercer University email address above.</p>
+      </section>
     </div>
   </section>
 </BaseLayout>

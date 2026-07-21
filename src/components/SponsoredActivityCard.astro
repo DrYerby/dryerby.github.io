@@ -1,0 +1,30 @@
+---
+import type { SponsoredActivityRecord } from '../data/sponsoredActivity';
+
+const { record } = Astro.props as { record: SponsoredActivityRecord };
+
+const valueOrFallback = (value: string | null) => value ?? 'N/A';
+---
+
+<article class="activity-entry">
+  <h3>{record.title}</h3>
+  <dl class="activity-metadata">
+    <div>
+      <dt>Role</dt>
+      <dd>{valueOrFallback(record.role)}</dd>
+    </div>
+    <div>
+      <dt>Sponsor</dt>
+      <dd>{valueOrFallback(record.sponsor)}</dd>
+    </div>
+    <div>
+      <dt>Amount</dt>
+      <dd>{valueOrFallback(record.amount)}</dd>
+    </div>
+    <div>
+      <dt>Period</dt>
+      <dd>{valueOrFallback(record.period)}</dd>
+    </div>
+  </dl>
+  <p class="activity-description readable-prose">{record.description}</p>
+</article>

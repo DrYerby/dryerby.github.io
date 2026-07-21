@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Cybersecurity Consulting & Expert Analysis | Johnathan Yerby, Ph.D.';
+const description = 'Independent cybersecurity consulting and expert-witness support involving source code, software behavior, digital evidence, electronic records, security controls, and information-security practices.';
+
+const consultingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Cybersecurity consulting and expert analysis',
+  provider: {
+    '@type': 'Person',
+    name: 'Johnathan Yerby',
+    jobTitle: 'Associate Professor of Computer Science',
+    sameAs: [
+      'https://www.linkedin.com/in/yerby/',
+      'https://scholar.google.com/citations?user=e6s__p0AAAAJ&hl=en',
+      'https://orcid.org/0000-0001-8945-855X',
+    ],
+  },
+  areaServed: 'United States',
+  description,
+};
+---
+
+<BaseLayout title={title} description={description} currentPath="/consulting/">
+  <section class="page-shell">
+    <header class="page-shell__header">
+      <p class="eyebrow">Consulting and Expert Analysis</p>
+      <h1>Cybersecurity Consulting and Expert Analysis</h1>
+      <p class="page-shell__intro readable-prose">Dr. Yerby provides independent cybersecurity consulting and expert-witness support in documented areas of professional expertise. Engagements may involve technical analysis, objective reporting, and communication of complex technical findings for legal, administrative, executive, and professional audiences.</p>
+    </header>
+
+    <div class="page-shell__content">
+      <section class="page-shell__section" aria-labelledby="areas-of-engagement">
+        <h2 id="areas-of-engagement">Areas of Engagement</h2>
+        <ul class="consulting-areas-list">
+          <li>Expert analysis, litigation support, and objective technical reporting</li>
+          <li>Cybersecurity and technology consulting across governance, risk, compliance, and systems</li>
+          <li>Education, program, and workforce consulting for academic and professional settings</li>
+          <li>Communication of complex technical matters for legal, administrative, executive, and professional audiences</li>
+        </ul>
+      </section>
+
+      <div class="consulting-service-grid">
+        <section class="page-shell__section page-shell__section--card consulting-service" aria-labelledby="expert-analysis-and-litigation-support">
+          <h2 id="expert-analysis-and-litigation-support">Expert Analysis and Litigation Support</h2>
+          <p class="readable-prose">Engagements may include expert-witness support, objective technical review, software behavior analysis, source-code analysis, digital evidence and electronic-record review, and assessment of security controls. Work products may include written reports, with deposition and courtroom explanation when relevant to the engagement. Communication is tailored for legal, administrative, executive, and professional audiences.</p>
+        </section>
+
+        <section class="page-shell__section page-shell__section--card consulting-service" aria-labelledby="cybersecurity-and-technology-consulting">
+          <h2 id="cybersecurity-and-technology-consulting">Cybersecurity and Technology Consulting</h2>
+          <p class="readable-prose">Consulting may include cybersecurity program assessment; governance, risk, and compliance review; security controls; policy and procedure evaluation; information-system and software evaluation; technology strategy; and business-process improvement. Work may also address privacy, surveillance, and technology-policy questions through structured executive and organizational guidance.</p>
+        </section>
+
+        <section class="page-shell__section page-shell__section--card consulting-service" aria-labelledby="education-program-and-workforce-consulting">
+          <h2 id="education-program-and-workforce-consulting">Education, Program, and Workforce Consulting</h2>
+          <p class="readable-prose">Services may include cybersecurity curriculum development, academic-program design and review, CAE-CD preparation and alignment, continuing compliance support, assessment planning, faculty development, professional learning, workforce preparation, grant-supported education initiatives, public cybersecurity education, and presentations or executive briefings.</p>
+        </section>
+      </div>
+
+      <section class="page-shell__section consulting-standards" aria-labelledby="professional-standards">
+        <h2 id="professional-standards">Professional Standards</h2>
+        <p class="readable-prose">Professional independence is maintained throughout each engagement. Scope is clearly defined in advance, and conclusions are limited to reviewed evidence and documentation. Services are not presented as legal advice or legal representation.</p>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="professional-inquiries-consulting">
+        <h2 id="professional-inquiries-consulting">Professional Inquiries</h2>
+        <p class="readable-prose">For consulting, expert-witness, academic, or media inquiries, contact Dr. Yerby through Mercer University email.</p>
+        <p class="readable-prose">Media inquiries usually include Mercer University’s Media Relations office, but inclusion is not required.</p>
+        <div class="consulting-contact-links" aria-label="Professional links">
+          <a class="button-link" href="mailto:yerby_jm@mercer.edu">Email Dr. Yerby</a>
+          <a class="button-link button-link--secondary" href="/documents/Johnathan_Yerby_CV.pdf">View Current CV</a>
+          <a class="text-link" href="https://www.linkedin.com/in/yerby/">LinkedIn</a>
+          <a class="text-link" href="https://scholar.google.com/citations?user=e6s__p0AAAAJ&hl=en">Google Scholar</a>
+          <a class="text-link" href="https://orcid.org/0000-0001-8945-855X">ORCID</a>
+        </div>
+      </section>
+    </div>
+  </section>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(consultingJsonLd)} />
+</BaseLayout>

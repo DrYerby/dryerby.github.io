@@ -1,0 +1,41 @@
+---
+const { record, featured = false, compact = false } = Astro.props;
+
+const isVideo = record.mediaType.toLowerCase().includes('video');
+const hasLink = Boolean(record.url);
+const ctaLabel = isVideo ? 'Watch Interview' : 'Read Coverage';
+---
+
+<article class:list={['media-entry', featured && 'media-entry--featured', compact && 'media-entry--compact']}>
+  {featured && record.embedUrl && (
+    <div class="media-entry__embed">
+      <iframe
+        src={record.embedUrl}
+        title={`Embedded media: ${record.title}`}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  )}
+  <div class="media-entry__meta">
+    <span>{record.outlet}</span>
+    <span>{record.date}</span>
+    <span>{isVideo ? 'Video' : 'Article'}</span>
+  </div>
+  <h3 class="media-entry__title">
+    {hasLink ? (
+      <a class="media-entry__link" href={record.url} rel={record.url.startsWith('http') ? 'noopener noreferrer' : undefined}>
+        {record.title}
+      </a>
+    ) : (
+      <span>{record.title}</span>
+    )}
+  </h3>
+  <p class="media-entry__description">{record.description}</p>
+  {hasLink ? (
+    <p class="media-entry__cta"><a class="text-link" href={record.url} rel={record.url.startsWith('http') ? 'noopener noreferrer' : undefined}>{ctaLabel}</a></p>
+  ) : (
+    <p class="media-entry__status">Original link unavailable</p>
+  )}
+</article>

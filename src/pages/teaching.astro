@@ -1,18 +1,93 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = 'Teaching';
-const description = 'Teaching information and academic programming for Johnathan Yerby.';
+import { graduateCourses, undergraduateCourseCategories } from '../data/courses';
+
+const title = 'Teaching | Johnathan Yerby, Ph.D.';
+const description = 'Teaching philosophy, instructional approach, mentoring, and courses taught by Johnathan Yerby, Ph.D., Associate Professor of Computer Science at Mercer University.';
+
+const instructionalApproach = [
+  {
+    title: 'Applied and Experiential Learning',
+    description: 'Courses use realistic scenarios, technical environments, laboratory evidence, professional tools, physical devices, field experiences, and staged projects that connect academic concepts with professional practice.',
+  },
+  {
+    title: 'Professional Communication and Judgment',
+    description: 'Students practice documenting evidence, explaining technical findings, evaluating risk, supporting recommendations, and communicating with technical and nontechnical audiences.',
+  },
+  {
+    title: 'Research and Mentoring',
+    description: 'Undergraduate and graduate students receive guidance in research design, literature review, analysis, scholarly writing, presentation, publication, internships, certifications, competitions, and career preparation.',
+  },
+  {
+    title: 'Continuous Improvement',
+    description: 'Course organization, instructions, assignments, pacing, and learning activities are revised in response to student performance, feedback, professional developments, and changes in cybersecurity practice.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} currentPath="/teaching/">
   <section class="page-shell">
     <header class="page-shell__header">
-      <p class="eyebrow">Teaching</p>
+      <p class="eyebrow">Teaching and Mentoring</p>
       <h1>Teaching</h1>
-      <p class="page-intro">This page will be updated with current teaching information and course offerings.</p>
+      <p class="page-shell__intro readable-prose">Teaching is the center of Dr. Yerby’s academic work. His approach emphasizes clear expectations, meaningful engagement, applied learning, rigorous feedback, professional judgment, and continual revision. He seeks to help students develop both technical competence and the ability to explain, evaluate, and responsibly apply what they know.</p>
     </header>
     <div class="page-shell__content">
-      <p>This page will be updated with current teaching information and course offerings.</p>
+      <section class="page-shell__section" aria-labelledby="teaching-philosophy">
+        <h2 id="teaching-philosophy">Teaching Philosophy</h2>
+        <div class="readable-prose">
+          <p>Dr. Yerby views teaching as a continuing process of learning, reflection, and improvement. Students benefit from structure and preparation, but effective instruction must also respond to differences in experience, confidence, professional goals, and the changing nature of cybersecurity.</p>
+          <p>His courses connect technical knowledge with organizational context, ethical reasoning, communication, and professional responsibility. The goal is not only to help students complete an assignment, but also to help them understand how their decisions affect systems, organizations, users, and the public.</p>
+        </div>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="instructional-approach">
+        <h2 id="instructional-approach">Instructional Approach</h2>
+        <div class="instruction-grid">
+          {instructionalApproach.map((item) => (
+            <article class="instruction-card page-shell__section--card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="courses-taught">
+        <h2 id="courses-taught">Courses Taught</h2>
+        <p class="readable-prose">The following list reflects undergraduate and graduate teaching across cybersecurity, information technology, digital forensics, management, research, internships, capstone work, and thesis supervision.</p>
+        <div class="course-division">
+          <h3>Undergraduate Courses</h3>
+          <div class="course-category-grid">
+            {undergraduateCourseCategories.map((category) => (
+              <section class="course-category course-category--compact">
+                <h4>{category.title}</h4>
+                <ul>
+                  {category.courses.map((course) => <li>{course}</li>)}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </div>
+
+        <div class="course-division">
+          <h3>Graduate Courses</h3>
+          <section class="course-category course-category--compact">
+            <ul>
+              {graduateCourses.map((course) => <li>{course}</li>)}
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section class="page-shell__section" aria-labelledby="student-development">
+        <h2 id="student-development">Student Development</h2>
+        <p class="readable-prose">Teaching extends beyond scheduled courses through advising, research mentoring, thesis supervision, internships, cybersecurity competitions, professional networking, certification guidance, and conversations about graduate study and career development. These activities help students connect their academic work with a developing professional identity.</p>
+        <div class="hero__actions">
+          <a class="button-link button-link--secondary" href="/research/">Research &amp; Scholarship</a>
+          <a class="button-link button-link--secondary" href="/documents/Johnathan_Yerby_CV.pdf">View Current CV</a>
+        </div>
+      </section>
     </div>
   </section>
 </BaseLayout>
