@@ -1,0 +1,20 @@
+---
+import { publications } from '../data/publications.js';
+---
+
+<ol class="publication-list" aria-label="Selected recent publications">
+  {publications.map((publication) => (
+    <li class="publication-item">
+      <article>
+        <h3>
+          <a class="publication-title-link" href={publication.link}>{publication.title}</a>
+        </h3>
+        <p class="publication-meta">
+          <span>{publication.authors}</span>
+          <span>{publication.year}</span>
+          <span>{publication.venue}</span>
+        </p>
+      </article>
+    </li>
+  ))}
+</ol>

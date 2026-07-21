@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = 'CV';
-const description = 'Curriculum vitae information for Johnathan Yerby.';
+const title = 'Curriculum Vitae | Johnathan Yerby, Ph.D.';
+const description = 'Current curriculum vitae of Johnathan Yerby, Ph.D., including academic appointments, teaching, research, publications, grants, leadership, and professional service.';
+const cvUrl = '/documents/Johnathan-Yerby-CV.pdf';
 ---
 
 <BaseLayout title={title} description={description} currentPath="/cv/">
@@ -9,10 +10,12 @@ const description = 'Curriculum vitae information for Johnathan Yerby.';
     <header class="page-shell__header">
       <p class="eyebrow">CV</p>
       <h1>Curriculum Vitae</h1>
-      <p class="page-intro">This page will be updated with curriculum vitae details.</p>
+      <p class="page-shell__intro">The current curriculum vitae for Johnathan Yerby, Ph.D., includes academic appointments, teaching, research, publications, grants, professional service, leadership, and related professional activity.</p>
+      <p class="page-shell__intro"><strong>Updated July 2026</strong></p>
     </header>
     <div class="page-shell__content">
-      <p>This page will be updated with curriculum vitae details.</p>
+      <p><a class="button-link" href={cvUrl}>Download Current CV</a></p>
+      <p><a href={cvUrl}>Open CV in Browser</a></p>
     </div>
   </section>
 </BaseLayout>
