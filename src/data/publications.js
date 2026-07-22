@@ -17,7 +17,7 @@ export const publications = [
     authors: 'Frida Danson and Johnathan Yerby',
     year: '2025',
     title: 'Social media usage and awareness among first-year college students',
-    venue: 'Southern Association of Information Systems',
+    venue: 'Southern Association of Information Systems, 14, 1-7',
     link: 'https://aisel.aisnet.org/sais2025/14/',
   },
   {
