@@ -18,6 +18,14 @@ const ctaLabel = isVideo ? 'Watch Interview' : 'Read Coverage';
       ></iframe>
     </div>
   )}
+  {record.videoUrl && (
+    <div class="media-entry__embed">
+      <video controls preload="metadata" playsinline aria-label={`Video interview: ${record.title}`}>
+        <source src={record.videoUrl} type="video/mp4" />
+        Your browser does not support the video element.
+      </video>
+    </div>
+  )}
   <div class="media-entry__meta">
     <span>{record.outlet}</span>
     <span>{record.date}</span>

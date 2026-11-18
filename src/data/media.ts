@@ -14,11 +14,24 @@ export type MediaRecord = {
   url?: string;
   featured?: boolean;
   embedUrl?: string;
+  videoUrl?: string;
   mediaType: string;
   sortDate: string;
 };
 
 export const mediaRecords: MediaRecord[] = [
+  {
+    title: 'Mercer University cybersecurity expert explains what can lead to system outages',
+    date: 'November 17, 2026',
+    year: 2026,
+    outlet: 'WPGA',
+    category: 'Television and Video Interviews',
+    description: 'WPGA interviewed Dr. Yerby about how small technical problems can cascade across connected systems and why restoring service can take time.',
+    url: 'https://www.wpganews.com/2026/11/18/mercer-university-cybersecurity-expert-explains-what-can-lead-system-outages/',
+    videoUrl: '/media/mercer-system-outages.mp4',
+    mediaType: 'Video interview',
+    sortDate: '2026-11-17',
+  },
   {
     title: 'Mercer formally receives NSA Center of Academic Excellence designation',
     date: 'May 29, 2026',

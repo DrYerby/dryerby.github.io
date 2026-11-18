@@ -621,7 +621,8 @@ img {
   background: #000;
 }
 
-.media-entry__embed iframe {
+.media-entry__embed iframe,
+.media-entry__embed video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
