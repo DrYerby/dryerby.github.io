@@ -15,6 +15,7 @@ export type MediaRecord = {
   featured?: boolean;
   embedUrl?: string;
   videoUrl?: string;
+  posterUrl?: string;
   mediaType: string;
   sortDate: string;
 };
@@ -29,6 +30,7 @@ export const mediaRecords: MediaRecord[] = [
     description: 'WPGA interviewed Dr. Yerby about how small technical problems can cascade across connected systems and why restoring service can take time.',
     url: 'https://www.wpganews.com/2026/11/18/mercer-university-cybersecurity-expert-explains-what-can-lead-system-outages/',
     videoUrl: '/media/mercer-system-outages.mp4?v=5de38fd',
+    posterUrl: '/media/mercer-system-outages-poster.jpg',
     mediaType: 'Video interview',
     sortDate: '2026-11-17',
   },
